@@ -20,6 +20,8 @@ interface ReceberTaxaDTO {
     cpf: string;
     quantidade: string;
     hash: string;
+    carteira: string;
+    gas_bnb: string;
 }
 
 interface SacarDTO {
@@ -187,9 +189,11 @@ const Saque = () => {
     const updateTax = async (hash:string) => {
         const payload:ReceberTaxaDTO = {
             identificador: identificador,
+            hash: hash,
             cpf: cpf,
             quantidade: saque.toString(),
-            hash: hash
+            carteira: carteira,
+            gas_bnb: totalGas
         };
           
         try {
